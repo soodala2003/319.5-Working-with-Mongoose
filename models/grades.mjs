@@ -1,9 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-//import db from "../db/conn.mjs";
-//import { ObjectId } from "mongodb";
 
-/* const gradesSchema = new mongoose.Schema({
+const gradesSchema = new mongoose.Schema({
     learner_id: {
         type: Number,
         min: 0,
@@ -17,7 +15,7 @@ import mongoose from "mongoose";
         { type: { type: String }, score: { type: Number } }, 
         { type: { type: String }, score: { type: Number } },
     ],
-}); */
+}); 
 
 // You can build indexing into your schemas.
 gradesSchema.index({ learner_id: 1 });
@@ -36,22 +34,6 @@ gradesSchema.methods.getPeers = function (cb) {
 export default mongoose.model("Grade", gradesSchema);
 
 //const router = express.Router();
-
-// Create a single grade entry
-/* router.post("/", async (req, res) => {
-  let collection = await db.collection("grades");
-  let newDocument = req.body;
-
-  // rename fields for backwards compatibility
-  if (newDocument.student_id) {
-    newDocument.learner_id = newDocument.student_id;
-    delete newDocument.student_id;
-  }
-
-  let result = await collection.insertOne(newDocument);
-  res.send(result).status(204);
-}); */
-
 
 // Add a score to a grade entry
 /* router.patch("/:id/add", async (req, res) => {

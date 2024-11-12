@@ -1,8 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-//import db from "../db/conn.mjs";
-//import { ObjectId } from "mongodb";
-//const router = express.Router();
 
 /**
  * It is not best practice to seperate these routes
@@ -38,10 +35,6 @@ const gradeAggSchema = new mongoose.Schema({
 gradeAggSchema.index({ learner_id: 1 });
 gradeAggSchema.index({ class_id: 1 });
 gradeAggSchema.index({ scores: 1 });
-//gradeSchema.index({ campus: 1 });
-
-
-
 
 // Get the weighted average of a specified learner's grades, per class
 /* router.get("/learner/:id/avg-class", async (req, res) => {
